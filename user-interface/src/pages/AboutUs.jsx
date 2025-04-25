@@ -1,5 +1,6 @@
 import { Card } from '@chakra-ui/react'
 import React from 'react'
+import ProfileImage from '../assets/images/Professional Photo.jpg'
 
 function AboutUs() {
   return (
@@ -26,37 +27,35 @@ function AboutUs() {
       </div>
       <h2 className="text-4xl font-bold text-indigo-900 mb-4">What we do</h2>
       <p className="text-gray-600 text-lg leading-relaxed">
-        When things are clear, easy and relevant for patients, providers form
-        stronger relationships, minimize administrative burden and achieve
-        better financial results, so what’s good for patients is good for
-        providers. At Cedar, we foster that mutually beneficial relationship
-        through proven expertise and modern technology. We combine the best
-        techniques of fintech, ad tech, consumer and healthcare to help
-        providers understand and engage patients more effectively.
+      ElevateHub was founded with a simple yet powerful mission: to empower students by providing them access to world-class mentors, exciting internships, and career-defining opportunities.
+We believe the right guidance at the right time can transform lives.
+Our mentors aren’t just teachers they are industry experts, innovators, and changemakers passionate about helping the next generation succeed.
+Whether you're seeking mentorship, career advice, or hands-on experience, ElevateHub is your launchpad towards greatness.
       </p>
+
     </div>
 
     {/* Executive Card Section */}
     <div className="mt-20 flex justify-center">
       <Card className="flex flex-col md:flex-row md:items-center max-w-5xl p-6 gap-6 shadow-xl rounded-2xl">
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-1/3 ">
           <img
-            src="/profile.jpg" 
-            alt="Florian Otto"
-            className="rounded-lg object-cover"
+            src={ProfileImage}
+            alt="Profile Image"
+            className="rounded-full object-cover h-40 w-40 "
           />
         </div>
         <div className="w-full md:w-2/3 text-left">
           <h3 className="text-2xl font-bold text-indigo-900">
-            Florian Otto, MD, PhD
+           Poornima Mohabe / Full stack developer / MERN
           </h3>
           <p className="text-red-500 font-semibold mt-1 mb-3">
             Co-Founder / Chief Executive Officer
           </p>
           <p className="text-gray-600">
-            An accomplished entrepreneur and former physician, Florian now
-            drives growth and sets overall direction across all facets of
-            Cedar’s business.
+            An accomplished Developer and former physician, Florian now
+            drives growth and sets overall direction across all facets to get success. 
+            .
           </p>
         </div>
       </Card>
