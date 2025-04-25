@@ -30,15 +30,17 @@ function Login() {
     <div className="min-h-screen bg-gradient-to-b from-blue-500 to-blue-800 flex items-center justify-center">
       <div className="relative bg-white rounded-2xl shadow-lg w-full max-w-4xl flex overflow-hidden">
         {/* Left Side */}
-        <div className="w-1/2 bg-gradient-to-br from-blue-600 to-blue-800 p-10 text-white relative overflow-hidden">
+        <div className="w-1/2 flex justify-start items-center  bg-gradient-to-br from-blue-600 to-blue-800 p-10 text-white relative overflow-hidden">
+          <div>
           <h2 className="text-3xl font-bold mb-2">WELCOME</h2>
-          <h3 className="text-lg font-semibold mb-4">YOUR HEADLINE NAME</h3>
+          <h3 className="text-lg font-semibold mb-4">Back to ElevateHub!</h3>
           <p className="text-sm leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Your journey to success continues here. <br />
+          Login and unlock new mentorship opportunities, exclusive internships, and career events.
           </p>
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-700 rounded-full -mb-16 -ml-16"></div>
           <div className="absolute top-1/2 right-0 w-40 h-40 bg-blue-700 rounded-full -mt-20 translate-x-1/2"></div>
+          </div>
         </div>
 
         {/* Right Side */}
@@ -46,7 +48,7 @@ function Login() {
           <form onSubmit={handleSubmit}>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">LOGIN</h2>
             <p className="text-sm text-gray-500 mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            Sign in to grow, connect, and achieve.
             </p>
 
             <div className="mb-4">
