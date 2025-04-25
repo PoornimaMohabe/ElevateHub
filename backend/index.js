@@ -4,6 +4,7 @@ const cors = require("cors")
 const { userRouter } = require("./routes/user.routes")
 const { jobRouter } = require("./routes/job.routes")
 const { mentorshipRouter } = require("./routes/mentorShip.routes")
+const { mentorRouter } = require("./routes/mentor.routes")
 
 const app = express()
 app.use(express.json())
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 app.use("/", userRouter)
 app.use("/", jobRouter);
 app.use("/", mentorshipRouter);
+app.use("/", mentorRouter);
 
 const PORT = process.env.PORT || 4500
 

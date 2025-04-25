@@ -1,17 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-
+import AboutUs from "./pages/AboutUs";
 
 import AlumniList from "./pages/AlumniList";
 import ContactUs from "./pages/ContactUs";
 import Dashboard from "./pages/Dashboard";
 import Jobs from "./pages/Jobs";
-
+import Login from "./pages/login";
 import SignUp from "./pages/SignUp";
 import JobListing from "./pages/JobListing";
-import AboutUs from "./pages/Aboutus";
-import Login from "./pages/Login";
+import AllMentors from "./pages/Mentor/AllMentors";
+import MentorCard from "./pages/Mentor/MentorCard";
+
 
 const AllRouter = () => {
   return (
@@ -25,6 +26,8 @@ const AllRouter = () => {
       <Route path="/jobs" element={<Jobs />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/mentor" element={<MentorCard />} />
+      <Route path="/all-mentors" element={<AllMentors />} />
     </Routes>
   );
 };

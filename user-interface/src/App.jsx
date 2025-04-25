@@ -6,7 +6,8 @@ import SignUp from "./pages/SignUp";
 import Navbar from "./components/Navbar";
 
 import ContactUs from "./pages/ContactUs";
-
+import AboutUs from "./pages/AboutUs";
+import Login from "./pages/login";
 
 import AllRouter from "./AllRouter";
 
@@ -14,19 +15,27 @@ import JobListing from "./pages/JobListing";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 
-function App() {
- 
+import MentorProfile from "./pages/Mentor/MentorProfile";
 
+function App() {
   return (
     <>
-    {/* <div className="bg-blue-500 text-white p-4">Tailwind is working!</div> */}
       <Navbar />
-      <AllRouter />
+      <div className="mt-16">
+        {/* <Home/> */}
+        {/* <MentorCard />
+        <AllMentors /> */}
+        {/* <MentorProfile/> */}
+        <AllRouter />
+        <Footer/>
+      </div>
+   
+      
       {/* <Login /> */}
       {/* <AboutUs/> */}
       {/* <ContactUs/> */}
       {/* <SignUp />? */}
-
+      {/* <Alljob /> */}
     </>
   );
 }

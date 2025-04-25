@@ -41,7 +41,7 @@ function AboutUs() {
       <Card className="flex flex-col md:flex-row md:items-center max-w-5xl p-6 gap-6 shadow-xl rounded-2xl">
         <div className="w-full md:w-1/3">
           <img
-            src="/profile.jpg" // replace with actual image
+            src="/profile.jpg" 
             alt="Florian Otto"
             className="rounded-lg object-cover"
           />
