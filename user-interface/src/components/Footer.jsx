@@ -6,9 +6,9 @@ function Footer() {
     <footer className="bg-[#12131C] text-white py-16 px-8 lg:px-24">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
       <div>
-        <h2 className="text-2xl font-bold mb-4">POWER.</h2>
+        <h2 className="text-2xl font-bold mb-4">About ElevateHub</h2>
         <p className="text-sm text-gray-400 mb-6">
-          An inexpensive, quick and easy way to build beautiful responsive website pages without coding knowledge
+        ElevateHub bridges the gap between ambition and opportunity. Our platform connects students with expert mentors, career opportunities, and real-world experiences. Join a community where growth never stops.
         </p>
         <div className="flex space-x-4">
   <Facebook className="w-5 h-5 text-white hover:text-gray-300 cursor-pointer" />
@@ -19,7 +19,7 @@ function Footer() {
       </div>
 
       <div>
-        <h3 className="font-semibold text-white mb-4 uppercase">Maka Agency</h3>
+        <h3 className="font-semibold text-white mb-4 uppercase">Quick Links</h3>
         <ul className="space-y-2 text-sm text-gray-400">
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
@@ -31,10 +31,10 @@ function Footer() {
       <div>
         <h3 className="font-semibold text-white mb-4 uppercase">Power</h3>
         <ul className="space-y-2 text-sm text-gray-400">
-          <li><a href="#">Pillar Page</a></li>
-          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Become a Mentor</a></li>
+          <li><a href="#">Browse Jobs & Internships</a></li>
           <li><a href="#">Jobs</a></li>
-          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Book a Mentor</a></li>
         </ul>
       </div>
 
@@ -51,17 +51,14 @@ function Footer() {
           </button>
         </div>
         <p className="text-xs text-gray-400">
-          Here you can add a hint regarding the subscription and / or use the GDPR settings of the form. Yes, our template is GDPR ready and completely translatable by the way ❤️
+        Stay inspired. Stay connected. Follow us on our social media channels and be part of the ElevateHub movement. ❤️
         </p>
       </div>
     </div>
 
     <div className="mt-16 border-t border-gray-700 pt-6 flex flex-col lg:flex-row items-center justify-between text-sm text-gray-500">
-      <p>© 2022 maka Agency – All rights reserved</p>
-      <div className="flex space-x-4 mt-4 lg:mt-0">
-        <a href="#">Terms of Use</a>
-        <a href="#">Privacy Policy</a>
-      </div>
+      <p>© 2025 ElevateHub. Empowering Futures, One Connection at a Time.</p>
+      
     </div>
   </footer>
   )
