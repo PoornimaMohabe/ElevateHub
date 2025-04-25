@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import SpinnerForButtonr from "../utils/SppinerForButton";
+import SpinnerForButtonr from "../utils/SppinnerForButtonr";
 import { registerURL } from "../utils/url";
 import Toastnotification from "../utils/Toastnotification";
 
@@ -57,7 +57,7 @@ function SignUp() {
       <div className="flex w-full max-w-5xl h-[600px] rounded-lg overflow-hidden shadow-lg">
         {/* Left side (White background) */}
         <div className="w-1/2 bg-white p-10 flex flex-col justify-center relative">
-          <h2 className="text-xl text-[#2c00aa] font-semibold mb-4 border-b-2 border-[#9b4dff] w-fit pb-1">
+          <h2 className="text-xl text-[#2c00aa] font-semibold mb-10 border-b-2 border-[#9b4dff] w-fit pb-1 ">
             REGISTER HERE
           </h2>
 
@@ -109,7 +109,7 @@ function SignUp() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-gradient-to-r from-[#31c1f7] to-[#6536f8] text-white font-bold py-2 rounded-full w-full"
+              className="bg-gradient-to-r from-[#31c1f7] to-[#6536f8] mt-10  text-white font-bold py-2 rounded-full w-full"
             >
               {isSubmitting ? <SpinnerForButtonr /> : "SIGN UP"}
             </button>
@@ -127,10 +127,11 @@ function SignUp() {
           <h1 className="text-3xl font-bold mb-4 text-center">
             Glad to see you!
           </h1>
-          <p className="text-sm text-center mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna
+          <p className="text-s font-semibold text-red-100 text-center mb-4">
+          Create your free account and unlock unlimited possibilities.
           </p>
+          <p className="text-sm text-center mb-6">Start Your Journey with ElevateHub
+          Find mentors, discover opportunities, and take your first step towards a brighter future.</p>
           <p className="text-sm">Sign up with</p>
           <div className="flex justify-center space-x-4 mt-3">
             <img
