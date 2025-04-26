@@ -51,6 +51,7 @@ const MentorDashboard = () => {
             <p className="text-gray-600">Help students find opportunities by posting jobs and internships.</p>
             <button className="mt-2 bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-semibold transition">Post Now</button>
           </div>
+          
 
           <div className="space-y-2">
             <h2 className="text-2xl font-bold text-gray-800">Expand Your Network</h2>

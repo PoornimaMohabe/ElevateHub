@@ -11,8 +11,9 @@ import MentorCard from "./pages/Mentor/MentorCard";
 import MentorProfile from "./pages/Mentor/MentorProfile";
 import PostJob from "./pages/PostJob";
 import MentorRegistration from "./pages/MentorRegistration";
-import MentorDashboard from "./pages/Mentordashboard";
+
 import SingleJobDetails from "./pages/SingleJobDetails";
+import MentorDashboard from "./pages/Mentordashboard";
 
 const AllRouter = () => {
   return (

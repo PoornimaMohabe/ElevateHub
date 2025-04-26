@@ -21,6 +21,7 @@ import PostJob from "./pages/PostJob";
 
 
 import MentorRegistration from "./pages/MentorRegistration";
+import MentorDashboard from "./pages/Mentordashboard";
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
         {/* <Footer /> */}
         {/* <MentorRegistration /> */}
 
-      
+      {/* <MentorDashboard/> */}
         {/* <Login /> */}
         {/* <AboutUs/> */}
         {/* <ContactUs /> */}
