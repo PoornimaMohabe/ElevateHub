@@ -19,8 +19,8 @@ const userSchema = mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ["user", "admin", "alumni"],
-        default: "user"
+        enum: ["student", "mentor", "admin"],
+        default: "student"
     },
     otp  : {
         type : Number , 

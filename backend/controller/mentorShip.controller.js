@@ -1,6 +1,6 @@
 const { MentoreshiprequestModel } = require("../model/mentorship.model");
 
-// POST: Create mentorship request
+// POST
 const post_Mentorship = async (req, res) => {
   const payload = req.body;
   try {
@@ -12,7 +12,7 @@ const post_Mentorship = async (req, res) => {
   }
 };
 
-// GET: All mentorship requests
+// GET
 const get_All_Mentorship = async (req, res) => {
   try {
     const all_Requests = await MentoreshiprequestModel.find().sort({ createdAt: -1 });
@@ -28,7 +28,7 @@ const get_All_Mentorship = async (req, res) => {
   }
 };
 
-// PATCH: Update a mentorship request
+// PATCH
 const update_Mentorship = async (req, res) => {
   const payload = req.body;
   const { id } = req.params;
@@ -40,7 +40,7 @@ const update_Mentorship = async (req, res) => {
   }
 };
 
-// DELETE: Remove mentorship request
+// DELETE
 const delete_Mentorship = async (req, res) => {
   const { id } = req.params;
   try {

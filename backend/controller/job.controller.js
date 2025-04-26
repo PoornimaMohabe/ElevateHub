@@ -1,6 +1,6 @@
 const { JobModel } = require("../model/job.model");
 
-// POST: Add a new job
+// POST
 const post_Job = async (req, res) => {
     const payload = req.body;
     try {
@@ -12,7 +12,7 @@ const post_Job = async (req, res) => {
     }
 };
 
-// GET: Get all jobs
+// GET
 const get_All_Jobs = async (req, res) => {
     try {
         const all_Jobs = await JobModel.find().sort({ createdAt: -1 });
@@ -28,7 +28,22 @@ const get_All_Jobs = async (req, res) => {
     }
 };
 
-// PATCH: Update a job
+// GET
+const get_Single_Job = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const job = await JobModel.findOne({_id:id});
+        if (job) {
+            res.status(200).json({ status: true, msg: "Job found", job });
+        } else {
+            res.status(404).json({ status: false, msg: "Job not found" });
+        }
+    } catch (error) {
+        res.status(400).json({ status: false, msg: `${error.message}` });
+    }
+};
+
+// PATCH
 const update_Job = async (req, res) => {
     const payload = req.body;
     const { id } = req.params;
@@ -40,7 +55,7 @@ const update_Job = async (req, res) => {
     }
 };
 
-// DELETE: Delete a job
+// DELETE
 const delete_Job = async (req, res) => {
     const { id } = req.params;
     try {
@@ -54,6 +69,7 @@ const delete_Job = async (req, res) => {
 module.exports = {
     post_Job,
     get_All_Jobs,
+    get_Single_Job, 
     update_Job,
     delete_Job,
 };
