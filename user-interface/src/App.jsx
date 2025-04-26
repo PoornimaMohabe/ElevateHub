@@ -18,7 +18,7 @@ import MentorCard from "./pages/Mentor/MentorCard";
 import AllMentors from "./pages/Mentor/AllMentors";
 import MentorProfile from "./pages/Mentor/MentorProfile";
 import PostJob from "./pages/PostJob";
-import MentorDashboard from "./pages/Mentordashboard";
+
 
 import MentorRegistration from "./pages/MentorRegistration";
 
@@ -33,7 +33,7 @@ function App() {
         {/* <MentorCard />
         <AllMentors /> */}
         {/* <MentorProfile /> */}
-        {/* <MentorDashboard /> */}
+
         {/* <RequestManagement /> */}
         {/* <PostJob /> */}
         <Footer />
