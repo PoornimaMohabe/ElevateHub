@@ -2,6 +2,13 @@
 import axios from "axios"
 import { LOGINFAILURE, LOGINLOADING, LOGINSUCCESS } from "./actionType"
 import { loginUrl } from "../utils/url"
+// import { authorizationToken } from "../utils/Token"
+
+// import { useContext } from "react"
+// import { orderContext } from "../hook/SocketServer"
+// import { io } from "socket.io-client"
+
+//login creator
 
 
 export const loginFunction = (fromData, showToast, navigate) => {
@@ -50,3 +57,74 @@ export const loginFunction = (fromData, showToast, navigate) => {
 
 
 
+// add to cart creator
+
+
+
+// export const addToCartProduct = (toast) => {
+//     return async (dispatch) => {
+//         dispatch({ type: ADDTOCARTLOADING})
+//         try {
+//             const response = await axios.get(cartProductUrl, authorizationToken)
+
+//             if(response.data.msg == "All Cart Poduct"){
+
+//                 dispatch({ type: ADDTOCARTSUCCESS, payload: response.data }) 
+//             }
+//             else{
+//                 toast({
+//                     title: `${response.data.msg}`,
+//                     description: `${response.data.msg}`,
+//                     status: 'error',
+//                     duration: 3000,
+//                     isClosable: true,
+//                     position: 'top-right',
+//                 })
+//                 dispatch({ type: ADDTOCARTFAILURE, payload:  response.data.msg })
+//             }
+
+
+//         } catch (error) {
+
+//             toast({
+//                 title: `${error.message}`,
+//                 description: `Somethings went wrong`,
+//                 status: 'error',
+//                 duration: 3000,
+//                 isClosable: true,
+//                 position: 'top-right',
+//             })
+//             dispatch({ type: ADDTOCARTFAILURE, payload: error.message })
+
+//         }
+//     }
+// }
+
+
+// export function logoutfunction(navigate , toast , setIsOpenDrawer ,showToast , socket) {
+
+//     return async (dispatch) => {
+//         dispatch({ type: LOGOUTLOADING })
+//         try {
+//                 dispatch({ type: LOGOUTSUCCESS,  })
+//                 localStorage.removeItem('token');
+//                 localStorage.removeItem('user');
+//                 // localStorage.removeItem('user');
+                 
+
+//                 showToast(`Logout successfully` , "Logout successfully"  )
+//                 if(socket){
+//                     socket.disconnect(); // Properly disconnect the socket
+//                 }
+//                 socket.emit("logout" , "user logout successfull")
+//                 // alert("user logout successfully")
+//                 setIsOpenDrawer(false)
+//                 navigate("/login")
+        
+//         } catch (error) {
+//             dispatch({ type: LOGOUTFAILURE, payload: error.message })
+//             showToast(`${error.message}` ,`${error.message}` , "error" )
+
+//         }
+//     }
+// }

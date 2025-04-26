@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
-import navlogo from '../assets/images/navbarLogo.png'
+import navlogo from "../assets/images/navbarLogo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdown, setDropdown] = useState(null); 
+  const [dropdown, setDropdown] = useState(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = (name) => {
@@ -14,35 +14,28 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
+    { name: "About", path: "/about-us" },
     {
       name: "Mentors",
       dropdown: [
-        { label: "Find Mentor", path: "/mentors" },
-        { label: "Become a Mentor", path: "/apply-mentor" },
+        { label: "Find Mentor", path: "/all-mentors" },
+        // { label: "Become a Mentor", path: "/become-coach" },
       ],
     },
     {
       name: "Jobs",
       dropdown: [
         { label: "Browse Jobs", path: "/jobs" },
-        { label: "Post Jobs", path: "/post-jobs" },
+        { label: "Post Jobs", path: "/postJob" },
       ],
     },
-    {
-      name: "Events",
-      dropdown: [
-        { label: "Upcoming Events", path: "/events" },
-        { label: "Host Event", path: "/host-event" },
-      ],
-    },
-    { name: "Contact", path: "/contact" },
+
+    { name: "Contact", path: "/contact-us" },
   ];
 
   return (
     <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl h-20 mx-auto px-6 py-3 flex items-center justify-between">
-        
         <Link to="/" className="text-2xl font-bold text-blue-600">
           <img src={navlogo} alt="Logo" className="h-10 object-cover" />
         </Link>
@@ -52,33 +45,31 @@ const Navbar = () => {
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
-              key={link.name}
-              className="relative"
-              onMouseEnter={() => setDropdown(link.name)}
-              onMouseLeave={() => setDropdown(null)}
-            >
-              <button className="flex items-center gap-1 hover:text-blue-600 transition">
-                {link.name}
-                <ChevronDown size={16} />
-              </button>
-            
-              {/* Dropdown menu */}
-              {dropdown === link.name && (
-                <div className="absolute top-full left-0 mt-2 bg-white border shadow-md rounded-lg p-2 space-y-2 z-50 w-48">
-                  {link.dropdown.map((item) => (
-                    <Link
-                      key={item.label}
-                      to={item.path}
-                      className="block px-3 py-1 text-sm hover:bg-blue-50 rounded-md hover:text-blue-600"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-            
+                key={link.name}
+                className="relative"
+                onMouseEnter={() => setDropdown(link.name)}
+                onMouseLeave={() => setDropdown(null)}
+              >
+                <button className="flex items-center gap-1 hover:text-blue-600 transition">
+                  {link.name}
+                  <ChevronDown size={16} />
+                </button>
 
+                {/* Dropdown menu */}
+                {dropdown === link.name && (
+                  <div className="absolute top-full left-0  bg-white border shadow-md rounded-lg p-2 space-y-2 z-50 w-48">
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.path}
+                        className="block px-3 py-1 text-sm hover:bg-blue-50 rounded-md hover:text-blue-600"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ) : (
               <Link
                 key={link.name}
@@ -107,7 +98,10 @@ const Navbar = () => {
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-gray-700 hover:text-blue-600">
+          <button
+            onClick={toggleMenu}
+            className="text-gray-700 hover:text-blue-600"
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -124,7 +118,12 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full text-left font-medium text-gray-700 hover:text-blue-600"
                 >
                   {link.name}
-                  <ChevronDown size={18} className={`${dropdown === link.name ? "rotate-180" : ""} transition`} />
+                  <ChevronDown
+                    size={18}
+                    className={`${
+                      dropdown === link.name ? "rotate-180" : ""
+                    } transition`}
+                  />
                 </button>
                 {dropdown === link.name && (
                   <div className="pl-4 space-y-1">
@@ -151,7 +150,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             )
-            
           )}
 
           <hr className="my-2" />

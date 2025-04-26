@@ -9,15 +9,15 @@ const RequestConfirmation = () => {
   <div className="absolute top-12 left-12 w-3 h-3 bg-blue-300 rounded-full opacity-70 animate-pulse"></div>
   <div className="absolute top-20 left-8 w-4 h-4 bg-yellow-300 rounded-full opacity-60 animate-bounce"></div>
 
-  {/*  Top Right */}
+  {/* Decorative Circles - Top Right */}
   <div className="absolute top-8 right-8 w-4 h-4 bg-purple-300 rounded-full opacity-70 animate-ping"></div>
   <div className="absolute top-16 right-14 w-3 h-3 bg-green-300 rounded-full opacity-60 animate-pulse"></div>
 
-  {/*  Bottom Left */}
+  {/* Decorative Circles - Bottom Left */}
   <div className="absolute bottom-20 left-10 w-5 h-5 bg-indigo-300 rounded-full opacity-70 animate-pulse"></div>
   <div className="absolute bottom-10 left-16 w-3 h-3 bg-teal-300 rounded-full opacity-60 animate-ping"></div>
 
-  {/* Bottom Right */}
+  {/* Decorative Circles - Bottom Right */}
   <div className="absolute bottom-16 right-16 w-4 h-4 bg-rose-300 rounded-full opacity-70 animate-bounce"></div>
   <div className="absolute bottom-8 right-10 w-3 h-3 bg-lime-300 rounded-full opacity-60 animate-pulse"></div>
 

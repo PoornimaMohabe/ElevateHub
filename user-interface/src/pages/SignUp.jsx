@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-import SpinnerForButtonr from "../utils/SppinnerForButtonr";
+import { Button } from "@chakra-ui/react"; 
+import SpinnerForButtonr from "..//utils/SppinerForButton";
 import { registerURL } from "../utils/url";
 import Toastnotification from "../utils/Toastnotification";
-import logo from '../assets/images/logo.png'
+import logo from "../assets/images/logo.png";
+import MentorRegistration from "./MentorRegistration"; 
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -12,6 +13,7 @@ function SignUp() {
   const [password, setPasswod] = useState("");
   const [mobileNumber, setmobileNumber] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMentorModalOpen, setIsMentorModalOpen] = useState(false);
 
   const { showToast } = Toastnotification();
 
@@ -110,29 +112,46 @@ function SignUp() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-gradient-to-r from-[#31c1f7] to-[#6536f8] mt-10  text-white font-bold py-2 rounded-full w-full"
+              className="bg-gradient-to-r from-[#31c1f7] to-[#6536f8] mt-6 text-white font-bold py-2 rounded-full w-full"
             >
               {isSubmitting ? <SpinnerForButtonr /> : "SIGN UP"}
             </button>
           </form>
+
+          {/* Become Mentor Button */}
+          <Button
+            onClick={() => setIsMentorModalOpen(true)}
+            mt={6}
+            colorScheme="purple"
+            variant="outline"
+            className="w-full mt-4 border-[#6536f8] border-2 text-[#6536f8] font-bold rounded-full py-2"
+          >
+            Become a Mentor
+          </Button>
+
+          {/* Mentor Registration Modal */}
+          <MentorRegistration
+            isOpen={isMentorModalOpen}
+            setIsOpen={setIsMentorModalOpen}
+          />
         </div>
 
         {/* Right side (Gradient background) */}
         <div className="w-1/2 bg-gradient-to-tr from-[#3e027e] to-[#bc06d3] p-10 text-white flex flex-col justify-center items-center relative">
-          <img
-            src={logo}
-            alt="Logo"
-            className="mb-4 w-8 h-8"
-          />
+          <img src={logo} alt="Logo" className="mb-4 w-8 h-8" />
           <h2 className="text-lg font-semibold mb-2">Logo Here</h2>
           <h1 className="text-3xl font-bold mb-4 text-center">
             Glad to see you!
           </h1>
           <p className="text-s font-semibold text-red-100 text-center mb-4">
-          Create your free account and unlock unlimited possibilities.
+            Create your free account and unlock unlimited possibilities.
           </p>
-          <p className="text-sm text-center mb-6">Start Your Journey with ElevateHub
-          Find mentors, discover opportunities, and take your first step towards a brighter future.</p>
+          <p className="text-sm text-center mb-6">
+            Start Your Journey with ElevateHub
+            <br />
+            Find mentors, discover opportunities, and take your first step
+            towards a brighter future.
+          </p>
           <p className="text-sm">Sign up with</p>
           <div className="flex justify-center space-x-4 mt-3">
             <img

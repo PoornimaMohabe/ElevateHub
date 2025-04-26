@@ -1,5 +1,6 @@
 
-const BASEURL_LOCAL =  "http://localhost:4500"
+// const BASEURL_LOCAL =  "http://localhost:4500"
+const BASEURL_LOCAL = "https://elevatehub-yz2n.onrender.com"
 
 // login and register URL
 export const registerURL = `${BASEURL_LOCAL}/register`
@@ -13,4 +14,13 @@ export const addMentor = `${BASEURL_LOCAL}/addmentor`
 export const getAllMentor = `${BASEURL_LOCAL}/getallmentor`              
 export const updateMentor = `${BASEURL_LOCAL}//updatementor/:id`
 export const deleteMentor = `${BASEURL_LOCAL}/deletementor/:id`
+export const getSingleMentor = `${BASEURL_LOCAL}/mentor`
+
+// jobs crud URL
+export const addJob = `${BASEURL_LOCAL}/postJobs`
+export const getAllJob = `${BASEURL_LOCAL}/allJobs`               
+export const updateJob = `${BASEURL_LOCAL}/updateJobs/:id`
+export const deleteJob = `${BASEURL_LOCAL}/deleteJobs/:id`
+export const getSingleJob = `${BASEURL_LOCAL}/jobdetails`
+
 
