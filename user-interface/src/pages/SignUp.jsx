@@ -4,6 +4,7 @@ import axios from "axios";
 import SpinnerForButtonr from "../utils/SppinnerForButtonr";
 import { registerURL } from "../utils/url";
 import Toastnotification from "../utils/Toastnotification";
+import logo from '../assets/images/logo.png'
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -119,7 +120,7 @@ function SignUp() {
         {/* Right side (Gradient background) */}
         <div className="w-1/2 bg-gradient-to-tr from-[#3e027e] to-[#bc06d3] p-10 text-white flex flex-col justify-center items-center relative">
           <img
-            src="https://img.icons8.com/fluency/48/000000/drop.png"
+            src={logo}
             alt="Logo"
             className="mb-4 w-8 h-8"
           />

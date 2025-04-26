@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
+import navlogo from '../assets/images/navbarLogo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +23,10 @@ const Navbar = () => {
       ],
     },
     {
-      name: "Internships",
+      name: "Jobs",
       dropdown: [
-        { label: "Browse Internships", path: "/internships" },
-        { label: "Post Internship", path: "/post-internship" },
+        { label: "Browse Jobs", path: "/jobs" },
+        { label: "Post Jobs", path: "/post-jobs" },
       ],
     },
     {
@@ -43,7 +44,7 @@ const Navbar = () => {
       <div className="max-w-7xl h-20 mx-auto px-6 py-3 flex items-center justify-between">
         
         <Link to="/" className="text-2xl font-bold text-blue-600">
-          ElevateHub
+          <img src={navlogo} alt="Logo" className="h-10 object-cover" />
         </Link>
 
         {/* Desktop Menu */}
@@ -150,6 +151,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             )
+            
           )}
 
           <hr className="my-2" />
