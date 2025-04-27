@@ -24,7 +24,6 @@ const AllRouter = () => {
       <Route path="/" element={<Home />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/all-jobs" element={<JobListing />} />
-    
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/dashboard" element={<MentorsDashboard />} />
       <Route path="/jobs" element={<JobListing />} />

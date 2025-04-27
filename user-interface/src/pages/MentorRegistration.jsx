@@ -71,7 +71,7 @@ const MentorRegistration = ({ isOpen, setIsOpen }) => {
     <Modal
       isOpen={isOpen}
       onClose={() => setIsOpen(false)}
-      size="4xl" // 🛠️ Increased Modal size for larger screens
+      size="4xl" 
       isCentered
     >
       <ModalOverlay />

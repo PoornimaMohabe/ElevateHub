@@ -19,7 +19,7 @@ const Navbar = () => {
       name: "Mentors",
       dropdown: [
         { label: "Find Mentor", path: "/all-mentors" },
-        // { label: "Become a Mentor", path: "/become-coach" },
+     
       ],
     },
     {
@@ -96,7 +96,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Menu Icon */}
+        {/* Menu Icon */}
         <div className="md:hidden">
           <button
             onClick={toggleMenu}

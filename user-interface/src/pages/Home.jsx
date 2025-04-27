@@ -48,7 +48,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Mentor Registration Modal */}
+      {/* Registration Modal */}
       <MentorRegistration
         isOpen={isMentorModalOpen}
         setIsOpen={setIsMentorModalOpen}

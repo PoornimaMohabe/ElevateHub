@@ -58,7 +58,7 @@ function SignUp() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#3e027e] p-4">
       <div className="flex w-full max-w-5xl h-[600px] rounded-lg overflow-hidden shadow-lg">
-        {/* Left side (White background) */}
+        {/* Left side  */}
         <div className="w-1/2 bg-white p-10 flex flex-col justify-center relative">
           <h2 className="text-xl text-[#2c00aa] font-semibold mb-10 border-b-2 border-[#9b4dff] w-fit pb-1 ">
             REGISTER HERE
@@ -118,7 +118,7 @@ function SignUp() {
             </button>
           </form>
 
-          {/* Become Mentor Button */}
+          {/*  Mentor Button */}
           <Button
             onClick={() => setIsMentorModalOpen(true)}
             mt={6}
@@ -129,14 +129,14 @@ function SignUp() {
             Become a Mentor
           </Button>
 
-          {/* Mentor Registration Modal */}
+          {/* Registration Modal */}
           <MentorRegistration
             isOpen={isMentorModalOpen}
             setIsOpen={setIsMentorModalOpen}
           />
         </div>
 
-        {/* Right side (Gradient background) */}
+        {/* Right side  */}
         <div className="w-1/2 bg-gradient-to-tr from-[#3e027e] to-[#bc06d3] p-10 text-white flex flex-col justify-center items-center relative">
           <img src={logo} alt="Logo" className="mb-4 w-8 h-8" />
           <h2 className="text-lg font-semibold mb-2">Logo Here</h2>

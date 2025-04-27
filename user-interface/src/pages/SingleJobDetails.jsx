@@ -103,7 +103,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
 
           <Divider />
 
-          {/* About the Job */}
+      
           <Box>
             <Text fontSize="xl" fontWeight="semibold" mb={3} color="blue.700">
               📝 About the Job
@@ -113,7 +113,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
             </Text>
           </Box>
 
-          {/* Roles and Responsibilities */}
+          
           <Box>
             <Text fontSize="xl" fontWeight="semibold" mb={3} color="blue.700">
               🎯 Role & Responsibilities
@@ -127,7 +127,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
             </Box>
           </Box>
 
-          {/* Required Qualifications */}
+      
           <Box>
             <Text fontSize="xl" fontWeight="semibold" mb={3} color="blue.700">
               🎓 Required Qualifications

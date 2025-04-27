@@ -28,7 +28,7 @@ const RequestManagement = () => {
 
   return (
     <div className="w-full min-h-screen bg-gray-50 p-6">
-      {/* Top paragraph */}
+    
       <div className="max-w-6xl mx-auto text-center mb-10">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">Manage Mentorship Requests</h1>
         <p className="text-gray-600 text-lg">
@@ -37,7 +37,7 @@ const RequestManagement = () => {
         </p>
       </div>
 
-      {/* Requests List */}
+     
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {requests.map((req) => (
           <div key={req.id} className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-between space-y-4 border border-gray-200 hover:shadow-lg transition">

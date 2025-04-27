@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-// import img1 from "../assets/img1.png";
 import Navbar from "../components/Navbar";
 import { loginFunction } from "../redux/actionCreator";
 import { useDispatch, useSelector } from "react-redux";

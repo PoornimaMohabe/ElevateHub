@@ -80,7 +80,7 @@ const PostJob = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Job Title */}
+        
           <div className="flex flex-col">
             <label className="font-semibold mb-2">Job Title</label>
             <input
@@ -94,7 +94,7 @@ const PostJob = () => {
             />
           </div>
 
-          {/* Company Name */}
+        
           <div className="flex flex-col">
             <label className="font-semibold mb-2">Company Name</label>
             <input
@@ -108,7 +108,7 @@ const PostJob = () => {
             />
           </div>
 
-          {/* Location */}
+        
           <div className="flex flex-col">
             <label className="font-semibold mb-2">Location</label>
             <input
@@ -122,7 +122,7 @@ const PostJob = () => {
             />
           </div>
 
-          {/* Description */}
+   
           <div className="flex flex-col">
             <label className="font-semibold mb-2">Job Description</label>
             <textarea
@@ -136,7 +136,7 @@ const PostJob = () => {
             />
           </div>
 
-          {/* Role and Responsibilities */}
+      
           <div className="flex flex-col">
             <label className="font-semibold mb-2">
               Role & Responsibilities <span className="text-gray-400">(comma separated)</span>
@@ -152,7 +152,7 @@ const PostJob = () => {
             />
           </div>
 
-          {/* Required Qualifications */}
+   
           <div className="flex flex-col">
             <label className="font-semibold mb-2">
               Required Qualifications <span className="text-gray-400">(comma separated)</span>
@@ -168,7 +168,7 @@ const PostJob = () => {
             />
           </div>
 
-          {/* Job Type */}
+      
           <div className="flex flex-col">
             <label className="font-semibold mb-2">Job Type</label>
             <select
@@ -183,7 +183,7 @@ const PostJob = () => {
             </select>
           </div>
 
-          {/* Last Date to Apply */}
+       
           <div className="flex flex-col">
             <label className="font-semibold mb-2">Last Date to Apply</label>
             <input

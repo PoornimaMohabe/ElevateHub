@@ -38,7 +38,7 @@ function AboutUs() {
         </p>
       </div>
 
-      {/* Executive Card Section */}
+      {/* Card Section */}
       <div className="mt-20 flex justify-center items-center">
         <Card className="flex flex-col md:flex-row md:items-center max-w-5xl p-6 gap-6 shadow-xl rounded-2xl">
           <div className="w-full md:w-1/3 overflow-hidden flex justify-center items-center">
