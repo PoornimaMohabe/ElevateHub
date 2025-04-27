@@ -145,6 +145,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
           <Button
             colorScheme="green"
             size="lg"
+            
             className="w-full hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg"
           >
             Apply Now 🚀
@@ -152,6 +153,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
+
   );
 };
 

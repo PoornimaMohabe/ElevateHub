@@ -4,6 +4,7 @@ import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 import { getAllJob } from "../utils/url";
+import SingleJobDetails from "./SingleJobDetails";
 
 const JobListing = () => {
   const [jobs, setJobs] = useState([]);
