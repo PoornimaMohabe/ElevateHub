@@ -1,7 +1,7 @@
 import React from "react";
 import mentorhome from "../assets/images/mentorhome.png";
 
-const MentorDashboard = () => {
+const MentorsDashboard = () => {
   return (
     <div className="w-full min-h-screen  bg-gray-50">
       {/* Home Static Section */}
@@ -19,7 +19,6 @@ const MentorDashboard = () => {
           className="w-full h-[600px] object-cover"
         />
       </div>
-      
 
       {/* Title Section */}
       <div className="text-center mt-20">
@@ -53,7 +52,6 @@ const MentorDashboard = () => {
             <button className="mt-2 bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-semibold transition">Post Now</button>
           </div>
 
-
           <div className="space-y-2">
             <h2 className="text-2xl font-bold text-gray-800">Expand Your Network</h2>
             <p className="text-gray-600">Build your personal brand while making a difference in someone’s journey.</p>
@@ -64,4 +62,4 @@ const MentorDashboard = () => {
   );
 };
 
-export default MentorDashboard;
+export default MentorsDashboard;

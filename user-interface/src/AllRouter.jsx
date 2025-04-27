@@ -13,7 +13,9 @@ import PostJob from "./pages/PostJob";
 import MentorRegistration from "./pages/MentorRegistration";
 
 import SingleJobDetails from "./pages/SingleJobDetails";
-import MentorDashboard from "./pages/Mentordashboard";
+import MentorsDashboard from "./pages/MentorsDashboard";
+
+
 
 
 const AllRouter = () => {
@@ -24,7 +26,7 @@ const AllRouter = () => {
       <Route path="/all-jobs" element={<JobListing />} />
     
       <Route path="/contact-us" element={<ContactUs />} />
-      <Route path="/dashboard" element={<MentorDashboard />} />
+      <Route path="/dashboard" element={<MentorsDashboard />} />
       <Route path="/jobs" element={<JobListing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />

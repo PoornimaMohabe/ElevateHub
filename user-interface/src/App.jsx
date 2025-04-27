@@ -5,7 +5,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import AllRouter from "./AllRouter";
 import Footer from "./components/Footer";
-import MentorDashboard from "./pages/Mentordashboard";
+
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         {/* <Footer /> */}
         {/* <MentorRegistration /> */}
 
-    <MentorDashboard/>
+ 
         {/* <Login /> */}
         {/* <AboutUs/> */}
         {/* <ContactUs /> */}
