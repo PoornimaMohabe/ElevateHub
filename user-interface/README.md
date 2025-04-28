@@ -84,10 +84,6 @@ We believe knowledge grows when shared, and ElevateHub builds that bridge.
 
 . Hosting: (Vercel / Render)
 
-
-## Project Screenshots
-Home Page	Mentor Profile Page	Dashboard
-
 ## Available Scripts
 In the backend folder:
 
@@ -105,4 +101,16 @@ Pull requests are welcome.
 
 * Acknowledgments
 Special thanks to the open-source community. 
+
+
+## Project Screenshots
+Home Page	Mentor Profile Page	Dashboard
+<!-- Home Page -->
+<img src="../user-interface/src/assets/images/homepage.png" width="600" />
+
+<!-- Job Page -->
+<img src="../user-interface/src/assets/images/jobpage.png" width="600" />
+
+<!-- Mentor home Page -->
+<img src="../user-interface/src/assets/images/mentorhome.png" width="600" />
 
