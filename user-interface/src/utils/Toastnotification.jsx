@@ -1,5 +1,5 @@
 import React from 'react'
-import { useToast } from '@chakra-ui/react'
+import { Toast, useToast } from '@chakra-ui/react'
 
 function Toastnotification() {
     const toast = useToast()

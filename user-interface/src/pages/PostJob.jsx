@@ -205,7 +205,7 @@ const PostJob = () => {
         </form>
       </div>
 
-      {/* Animation Keyframes */}
+  
       <style>{`
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-out;

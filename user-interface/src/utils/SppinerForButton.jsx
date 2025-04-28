@@ -1,11 +1,13 @@
 
 import { Spinner } from '@chakra-ui/react'
-function SpinnerForButtonr() {
+function SpinnerForButton() {
   return (
     <>
+
     <Spinner />
+    
 </>
   )
 }
 
-export default SpinnerForButtonr
+export default SpinnerForButton

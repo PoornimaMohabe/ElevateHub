@@ -5,6 +5,7 @@ const { userRouter } = require("./routes/user.routes")
 const { jobRouter } = require("./routes/job.routes")
 const { mentorshipRouter } = require("./routes/mentorShip.routes")
 const { mentorRouter } = require("./routes/mentor.routes")
+const { mentorBookingRouter } = require("./routes/mentorBooking.router")
 
 const app = express()
 app.use(express.json())
@@ -20,6 +21,7 @@ app.use("/", userRouter)
 app.use("/", jobRouter);
 app.use("/", mentorshipRouter);
 app.use("/", mentorRouter);
+app.use("/", mentorBookingRouter);
 
 const PORT = process.env.PORT || 4500
 

@@ -15,6 +15,7 @@ export const getAllMentor = `${BASEURL_LOCAL}/getallmentor`
 export const updateMentor = `${BASEURL_LOCAL}//updatementor/:id`
 export const deleteMentor = `${BASEURL_LOCAL}/deletementor/:id`
 export const getSingleMentor = `${BASEURL_LOCAL}/mentor`
+export const mentorLogin = `${BASEURL_LOCAL}/register-mentor`
 
 // jobs crud URL
 export const addJob = `${BASEURL_LOCAL}/postJobs`
@@ -22,5 +23,11 @@ export const getAllJob = `${BASEURL_LOCAL}/allJobs`
 export const updateJob = `${BASEURL_LOCAL}/updateJobs/:id`
 export const deleteJob = `${BASEURL_LOCAL}/deleteJobs/:id`
 export const getSingleJob = `${BASEURL_LOCAL}/jobdetails`
+
+// book mentor URL
+export const bookMentor = `${BASEURL_LOCAL}/bookmentor`
+
+//mentorshibooking url
+export const StudentBookMentorship = `${BASEURL_LOCAL}/student-bookings`
 
 

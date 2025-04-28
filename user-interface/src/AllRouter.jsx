@@ -13,7 +13,10 @@ import PostJob from "./pages/PostJob";
 import MentorRegistration from "./pages/MentorRegistration";
 
 import SingleJobDetails from "./pages/SingleJobDetails";
-import MentorsDashboard from "./pages/MentorsDashboard";
+
+import SignUpAs from "./pages/SignUpAs";
+import BookingList from "./pages/RequestManagment";
+import MentorDashboard from "./components/MentorDashboard";
 
 
 
@@ -24,17 +27,20 @@ const AllRouter = () => {
       <Route path="/" element={<Home />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/all-jobs" element={<JobListing />} />
-      <Route path="/contact-us" element={<ContactUs />} />
-      <Route path="/dashboard" element={<MentorsDashboard />} />
+    <Route path="/contact-us" element={<ContactUs />} />
+   
+      <Route path="/dashboard" element={<MentorDashboard />} />
       <Route path="/jobs" element={<JobListing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/mentor" element={<MentorCard />} />
+      <Route path="/student-bookings" element={<BookingList />} />
       <Route path="/all-mentors" element={<AllMentors />} />
       <Route path="/mentor/:id" element={<MentorProfile />} />
       <Route path="/postJob" element={<PostJob />} />
       <Route path="/getSingleJobDetails/:id" element={<SingleJobDetails />} />
-      <Route path="/become-coach" element={<MentorRegistration />} />
+      <Route path="/mentor-registration" element={<MentorRegistration />} />
+      <Route path="/register-as" element={<SignUpAs />} />
     </Routes>
   );
 };

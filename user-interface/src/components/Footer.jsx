@@ -1,5 +1,6 @@
 import React from 'react'
 import { Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -21,20 +22,20 @@ function Footer() {
       <div>
         <h3 className="font-semibold text-white mb-4 uppercase">Quick Links</h3>
         <ul className="space-y-2 text-sm text-gray-400">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Contact</a></li>
+        <Link to="/">     <li><a href="#">Home</a></li> </Link>
+        <Link to="/about-us">       <li><a href="#">About Us</a></li></Link>
+        <Link to="/">      <li><a href="#">Documentation</a></li></Link>
+        <Link to="/contact-us">      <li><a href="#">Contact</a></li></Link>
         </ul>
       </div>
 
       <div>
         <h3 className="font-semibold text-white mb-4 uppercase">Power</h3>
         <ul className="space-y-2 text-sm text-gray-400">
-          <li><a href="#">Become a Mentor</a></li>
-          <li><a href="#">Browse Jobs & Internships</a></li>
-          <li><a href="#">Jobs</a></li>
-          <li><a href="#">Book a Mentor</a></li>
+        <Link to="/mentor-registration">     <li><a href="#">Become a Mentor</a></li></Link>
+        <Link to="/all-jobs">     <li><a href="#">Browse Jobs & Internships</a></li></Link>
+        <Link to="/all-jobs">     <li><a href="#">Jobs</a></li></Link>
+        <Link to="/all-mentors">     <li><a href="#">Book a Mentor</a></li></Link>
         </ul>
       </div>
 

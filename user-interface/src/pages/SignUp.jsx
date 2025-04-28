@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "@chakra-ui/react"; 
-import SpinnerForButtonr from "..//utils/SppinerForButton";
+
 import { registerURL } from "../utils/url";
 import Toastnotification from "../utils/Toastnotification";
 import logo from "../assets/images/logo.png";
-import MentorRegistration from "./MentorRegistration"; 
+import MentorRegistration from "./MentorRegistration";
+import SppinerForButton from "../utils/SppinerForButton";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -13,7 +14,7 @@ function SignUp() {
   const [password, setPasswod] = useState("");
   const [mobileNumber, setmobileNumber] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isMentorModalOpen, setIsMentorModalOpen] = useState(false);
+  const [isMentorModalOpen, setIsMentorModalOpen] = useState(false); 
 
   const { showToast } = Toastnotification();
 
@@ -29,7 +30,7 @@ function SignUp() {
     setIsSubmitting(true);
     try {
       const response = await axios.post(registerURL, registerData);
-      console.log(response.data);
+
       const { msg } = response.data;
 
       if (msg === `user already register with email ${email}`) {
@@ -58,7 +59,7 @@ function SignUp() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#3e027e] p-4">
       <div className="flex w-full max-w-5xl h-[600px] rounded-lg overflow-hidden shadow-lg">
-        {/* Left side  */}
+      
         <div className="w-1/2 bg-white p-10 flex flex-col justify-center relative">
           <h2 className="text-xl text-[#2c00aa] font-semibold mb-10 border-b-2 border-[#9b4dff] w-fit pb-1 ">
             REGISTER HERE
@@ -114,29 +115,12 @@ function SignUp() {
               disabled={isSubmitting}
               className="bg-gradient-to-r from-[#31c1f7] to-[#6536f8] mt-6 text-white font-bold py-2 rounded-full w-full"
             >
-              {isSubmitting ? <SpinnerForButtonr /> : "SIGN UP"}
+              {isSubmitting ? <SppinerForButton /> : "SIGN UP"}
             </button>
           </form>
-
-          {/*  Mentor Button */}
-          <Button
-            onClick={() => setIsMentorModalOpen(true)}
-            mt={6}
-            colorScheme="purple"
-            variant="outline"
-            className="w-full mt-4 border-[#6536f8] border-2 text-[#6536f8] font-bold rounded-full py-2"
-          >
-            Become a Mentor
-          </Button>
-
-          {/* Registration Modal */}
-          <MentorRegistration
-            isOpen={isMentorModalOpen}
-            setIsOpen={setIsMentorModalOpen}
-          />
         </div>
 
-        {/* Right side  */}
+        {/* Right side */}
         <div className="w-1/2 bg-gradient-to-tr from-[#3e027e] to-[#bc06d3] p-10 text-white flex flex-col justify-center items-center relative">
           <img src={logo} alt="Logo" className="mb-4 w-8 h-8" />
           <h2 className="text-lg font-semibold mb-2">Logo Here</h2>
@@ -152,29 +136,7 @@ function SignUp() {
             Find mentors, discover opportunities, and take your first step
             towards a brighter future.
           </p>
-          <p className="text-sm">Sign up with</p>
-          <div className="flex justify-center space-x-4 mt-3">
-            <img
-              src="https://img.icons8.com/color/48/facebook-new.png"
-              alt="facebook"
-              className="w-6 h-6"
-            />
-            <img
-              src="https://img.icons8.com/color/48/twitter--v1.png"
-              alt="twitter"
-              className="w-6 h-6"
-            />
-            <img
-              src="https://img.icons8.com/color/48/google-logo.png"
-              alt="google"
-              className="w-6 h-6"
-            />
-            <img
-              src="https://img.icons8.com/color/48/linkedin.png"
-              alt="linkedin"
-              className="w-6 h-6"
-            />
-          </div>
+          
         </div>
       </div>
     </div>

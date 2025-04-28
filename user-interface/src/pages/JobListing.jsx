@@ -136,7 +136,7 @@ const JobListing = () => {
         </div>
       </div>
 
-      {/* Drawer for Job Details */}
+      {/* Drawer */}
       {selectedJobId && (
         <SingleJobDetails
           id={selectedJobId}

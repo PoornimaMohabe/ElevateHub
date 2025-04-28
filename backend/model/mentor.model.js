@@ -10,6 +10,10 @@ const mentorSchema = mongoose.Schema({
         required: true,
         unique: true
     },
+    password: {   
+        type: String,
+        required: true
+    },
     phone_Number:{
         type: String,
         required: true,

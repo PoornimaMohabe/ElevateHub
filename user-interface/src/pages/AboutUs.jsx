@@ -53,7 +53,7 @@ function AboutUs() {
               Poornima Mohabe / Full stack developer / MERN
             </h3>
             <p className="text-red-500 font-semibold mt-1 mb-3">
-              Co-Founder / Chief Executive Officer
+             Founder / Chief Executive Officer
             </p>
             <p className="text-gray-600">
               An accomplished Developer and former physician, Florian now drives

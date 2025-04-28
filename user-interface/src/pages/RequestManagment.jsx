@@ -1,93 +1,71 @@
-import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Button } from "@chakra-ui/react";
+import Toastnotification from "../utils/Toastnotification";
+import { StudentBookMentorship } from "../utils/url";
 
-const dummyRequests = [
-  { id: 1, name: "John Doe", message: "Looking for guidance in web development.", status: "Pending" },
-  { id: 2, name: "Jane Smith", message: "Need advice on career switching to tech.", status: "Pending" },
-  { id: 3, name: "Michael Johnson", message: "Interested in learning about product management.", status: "Pending" },
-];
+const BookingList = () => {
+  const [bookings, setBookings] = useState([]);
+  const { showToast } = Toastnotification();
 
-const RequestManagement = () => {
-  const [requests, setRequests] = useState(dummyRequests);
-
-  const handleStatusChange = (id, newStatus) => {
-    const updatedRequests = requests.map((req) =>
-      req.id === id ? { ...req, status: newStatus } : req
-    );
-    setRequests(updatedRequests);
-
-    if (newStatus === "Accepted") {
-      toast.success("Request accepted by you");
-    } else if (newStatus === "Rejected") {
-      toast.error("Request rejected by you");
-    } else {
-      toast.info("Request marked as pending");
+  const fetchAllBookings = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(StudentBookMentorship);
+      setBookings(response.data.bookings);
+    } catch (error) {
+      console.error("Error fetching bookings:", error.message);
+      showToast("Error", "Failed to fetch bookings", "error");
     }
   };
 
+  useEffect(() => {
+    fetchAllBookings();
+  }, []);
+
   return (
-    <div className="w-full min-h-screen bg-gray-50 p-6">
-    
-      <div className="max-w-6xl mx-auto text-center mb-10">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Manage Mentorship Requests</h1>
-        <p className="text-gray-600 text-lg">
-          Review incoming mentorship requests and manage their statuses. 
-          Stay connected and help students by taking timely actions.
-        </p>
-      </div>
+    <div className="bg-gray-100 min-h-screen p-6">
+      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-8">
+          <h2 className="text-2xl font-bold mb-6">All Bookings</h2>
 
-     
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        {requests.map((req) => (
-          <div key={req.id} className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-between space-y-4 border border-gray-200 hover:shadow-lg transition">
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-800">{req.name}</h2>
-              <p className="text-gray-600 mt-2">{req.message}</p>
+          {bookings.length === 0 ? (
+            <p className="text-center text-gray-500">No bookings found.</p>
+          ) : (
+            <div className="grid grid-cols-1 gap-6">
+              {bookings.map((booking) => (
+                <div
+                  key={booking._id}
+                  className="flex flex-col md:flex-row gap-4 p-4 border rounded-lg shadow-sm"
+                >
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1">
+                      {booking.username}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Email: {booking.email}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Mobile: {booking.mobileNumber}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Mentor ID: {booking.mentorId}
+                    </p>
+                  </div>
+                  <div className="flex items-center">
+                    <Button colorScheme="teal" variant="outline" size="sm">
+                      View Details
+                      
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
-
-            <div className="flex items-center justify-between mt-4">
-              <span
-                className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                  req.status === "Accepted"
-                    ? "bg-green-100 text-green-700"
-                    : req.status === "Rejected"
-                    ? "bg-red-100 text-red-700"
-                    : "bg-yellow-100 text-yellow-700"
-                }`}
-              >
-                {req.status}
-              </span>
-
-              <div className="flex space-x-2">
-                <button
-                  onClick={() => handleStatusChange(req.id, "Accepted")}
-                  className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md text-sm font-medium transition"
-                >
-                  Accept
-                </button>
-                <button
-                  onClick={() => handleStatusChange(req.id, "Pending")}
-                  className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-md text-sm font-medium transition"
-                >
-                  Pending
-                </button>
-                <button
-                  onClick={() => handleStatusChange(req.id, "Rejected")}
-                  className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md text-sm font-medium transition"
-                >
-                  Reject
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+          )}
+        </div>
       </div>
-
-      {/* Toast Notifications */}
-      <ToastContainer position="bottom-right" autoClose={2000} hideProgressBar />
     </div>
   );
 };
 
-export default RequestManagement;
+export default BookingList;

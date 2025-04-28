@@ -1,4 +1,4 @@
-import { LOGINFAILURE, LOGINLOADING, LOGINSUCCESS } from "./actionType"
+import { LOGINFAILURE, LOGINLOADING, LOGINSUCCESS, LOGOUTFAILURE, LOGOUTLOADING, LOGOUTSUCCESS } from "./actionType"
 
 const initialLoginState = {
     loading: false,
@@ -7,7 +7,8 @@ const initialLoginState = {
     data: "",
     role: "",
     email: "",
-    userDetails: ""
+    userDetails: "", 
+ 
 }
 
 export const loginReducer = (state = initialLoginState, action) => {
@@ -18,24 +19,24 @@ export const loginReducer = (state = initialLoginState, action) => {
             }
         case LOGINSUCCESS:
             return {
-                ...state, loading: false, login: true, role: action.payload.role, email: action.payload.email, userDetails: action.payload
+                ...state, loading: false, login: true, role: action.payload.user.role, email: action.payload.user.email, userDetails: action.payload.user, token : action.payload.token, data: action.payload.msg
             }
         case LOGINFAILURE:
             return {
                 ...state, email: "", loading: false, login: false, error: action.payload, data: action.payload
             }
-        // case LOGOUTLOADING:
-        //     return {
-        //         ...state, loading: true
-        //     };
-        // case LOGOUTSUCCESS:
-        //     return {
-        //         ...state, email: "", login: false, loading: false, data: action.payload, role: ""
-        //     };
-        // case LOGOUTFAILURE:
-        //     return {
-        //         ...state, loading: false, error: action.payload
-        //     };
+        case LOGOUTLOADING:
+            return {
+                ...state, loading: true
+            };
+        case LOGOUTSUCCESS:
+            return {
+                ...state, email: "", login: false, loading: false, data: action.payload, role: "", token : "", userDetails: ""
+            };
+        case LOGOUTFAILURE:
+            return {
+                ...state, loading: false, error: action.payload
+            };
         default:
             return state
     }
@@ -43,32 +44,4 @@ export const loginReducer = (state = initialLoginState, action) => {
 }
 
 
-// const addtoCartInital = {
-//     loading: false,
-//     error: "",
-//     message: "",
-//     cart: []
-// }
-
-// export const addtoCartReducer = (state = addtoCartInital, action) => {
-//     switch (action.type) {
-//         case ADDTOCARTLOADING:
-//             return {
-//                 ...state, loading: true
-//             }
-
-//         case ADDTOCARTSUCCESS:
-//             return {
-//                 ...state, loading: false, message: action.payload.msg, cart: action.payload.allProduct,
-//             }
-
-//         case ADDTOCARTFAILURE:
-//             return {
-//                 ...state, loading: false, error: action.payload
-//             }
-
-//         default:
-//             return state
-//     }
-// }
 

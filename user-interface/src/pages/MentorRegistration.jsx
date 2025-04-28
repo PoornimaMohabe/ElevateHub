@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-} from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { addMentor } from "../utils/url";
 import axios from "axios";
 import Toastnotification from "../utils/Toastnotification";
 
-const MentorRegistration = ({ isOpen, setIsOpen }) => {
+const MentorRegistrationPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,8 +38,6 @@ const MentorRegistration = ({ isOpen, setIsOpen }) => {
     try {
       const response = await axios.post(addMentor, payload);
       showToast("Mentor application submitted successfully!", "success");
-      setIsOpen(false);
-      console.log(response.data);
       setFormData({
         name: "",
         email: "",
@@ -68,178 +58,165 @@ const MentorRegistration = ({ isOpen, setIsOpen }) => {
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={() => setIsOpen(false)}
-      size="4xl" 
-      isCentered
-    >
-      <ModalOverlay />
-      <ModalContent borderRadius="2xl" p={{ base: 4, md: 8 }}>
-        <ModalHeader fontSize="2xl" textAlign="center" color="gray.700">
-          Apply to Become a Mentor
-        </ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+    <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-xl">
+      <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
+        Apply to Become a Mentor
+      </h2>
+      <form
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+      >
+        <div>
+          <label className="block text-gray-700">Full Name *</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            placeholder="Enter your full name"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">Phone Number *</label>
+          <input
+            type="text"
+            name="phone_Number"
+            value={formData.phone_Number}
+            onChange={handleChange}
+            required
+            placeholder="Enter your phone number"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">Email *</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            placeholder="Enter your email address"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">Profile Image URL *</label>
+          <input
+            type="text"
+            name="image"
+            value={formData.image}
+            onChange={handleChange}
+            required
+            placeholder="Paste your profile image URL"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">Designation *</label>
+          <input
+            type="text"
+            name="Designation"
+            value={formData.Designation}
+            onChange={handleChange}
+            required
+            placeholder="e.g., Software Engineer, Data Scientist"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">Years of Experience *</label>
+          <input
+            type="number"
+            name="Years_Of_Experience"
+            value={formData.Years_Of_Experience}
+            onChange={handleChange}
+            min="0"
+            required
+            placeholder="Enter years of experience"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">LinkedIn Profile *</label>
+          <input
+            type="url"
+            name="linkedln_Profile"
+            value={formData.linkedln_Profile}
+            onChange={handleChange}
+            required
+            placeholder="Enter your LinkedIn URL"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700">GitHub Profile *</label>
+          <input
+            type="url"
+            name="github_Profile"
+            value={formData.github_Profile}
+            onChange={handleChange}
+            required
+            placeholder="Enter your GitHub URL"
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <label className="block text-gray-700">Technical Skills *</label>
+          <input
+            type="text"
+            name="tech_Skill"
+            value={formData.tech_Skill}
+            onChange={handleChange}
+            placeholder="e.g., React, Node.js, MongoDB"
+            required
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <label className="block text-gray-700">Availability *</label>
+          <input
+            type="text"
+            name="availability"
+            value={formData.availability}
+            onChange={handleChange}
+            placeholder="e.g., Weekends, Evenings"
+            required
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <label className="block text-gray-700">Short Bio *</label>
+          <textarea
+            name="bio"
+            value={formData.bio}
+            onChange={handleChange}
+            rows="4"
+            required
+            placeholder="Tell us something about yourself..."
+            className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
+          />
+        </div>
+
+        <div className="md:col-span-2 flex justify-center">
+          <Button
+            type="submit"
+            colorScheme="orange"
+            size="lg"
+            fontWeight="bold"
+            px={8}
           >
-            <div>
-              <label className="block text-gray-700">Full Name *</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                placeholder="Enter your full name"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">Phone Number *</label>
-              <input
-                type="text"
-                name="phone_Number"
-                value={formData.phone_Number}
-                onChange={handleChange}
-                required
-                placeholder="Enter your phone number"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">Email *</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder="Enter your email address"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">Profile Image URL *</label>
-              <input
-                type="text"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                required
-                placeholder="Paste your profile image URL"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">Designation *</label>
-              <input
-                type="text"
-                name="Designation"
-                value={formData.Designation}
-                onChange={handleChange}
-                required
-                placeholder="e.g., Software Engineer, Data Scientist"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">
-                Years of Experience *
-              </label>
-              <input
-                type="number"
-                name="Years_Of_Experience"
-                value={formData.Years_Of_Experience}
-                onChange={handleChange}
-                min="0"
-                required
-                placeholder="Enter years of experience"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">LinkedIn Profile *</label>
-              <input
-                type="url"
-                name="linkedln_Profile"
-                value={formData.linkedln_Profile}
-                onChange={handleChange}
-                required
-                placeholder="Enter your LinkedIn URL"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700">GitHub Profile *</label>
-              <input
-                type="url"
-                name="github_Profile"
-                value={formData.github_Profile}
-                onChange={handleChange}
-                required
-                placeholder="Enter your GitHub URL"
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-
-            <div className="md:col-span-2">
-              <label className="block text-gray-700">Technical Skills *</label>
-              <input
-                type="text"
-                name="tech_Skill"
-                value={formData.tech_Skill}
-                onChange={handleChange}
-                placeholder="e.g., React, Node.js, MongoDB"
-                required
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-
-            <div className="md:col-span-2">
-              <label className="block text-gray-700">Availability *</label>
-              <input
-                type="text"
-                name="availability"
-                value={formData.availability}
-                onChange={handleChange}
-                placeholder="e.g., Weekends, Evenings"
-                required
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-
-            <div className="md:col-span-2">
-              <label className="block text-gray-700">Short Bio *</label>
-              <textarea
-                name="bio"
-                value={formData.bio}
-                onChange={handleChange}
-                rows="4"
-                required
-                placeholder="Tell us something about yourself..."
-                className="mt-1 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 p-2 placeholder-gray-400"
-              />
-            </div>
-
-            <div className="md:col-span-2 flex justify-center">
-              <Button
-                type="submit"
-                colorScheme="orange"
-                size="lg"
-                fontWeight="bold"
-                px={8}
-              >
-                Submit Application
-              </Button>
-            </div>
-          </form>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
+            Submit Application
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 };
 
-export default MentorRegistration;
+export default MentorRegistrationPage;

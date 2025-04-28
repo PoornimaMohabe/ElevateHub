@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { use, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import navlogo from "../assets/images/navbarLogo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@chakra-ui/react";
+import Toastnotification from "../utils/Toastnotification";
+import { logoutfunction } from "../redux/actionCreator";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +15,12 @@ const Navbar = () => {
   const toggleDropdown = (name) => {
     setDropdown(dropdown === name ? null : name);
   };
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  console.log("statefromNavbar", state);
+  console.log("islogin", state.auth.login);
+  const navigate = useNavigate();
+  const { showToast } = Toastnotification();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -19,7 +29,7 @@ const Navbar = () => {
       name: "Mentors",
       dropdown: [
         { label: "Find Mentor", path: "/all-mentors" },
-     
+  
       ],
     },
     {
@@ -32,6 +42,14 @@ const Navbar = () => {
 
     { name: "Contact", path: "/contact-us" },
   ];
+
+  //login for logout
+  const handleLogOut = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(logoutfunction(navigate, showToast));
+    }
+  };
 
   return (
     <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
@@ -83,20 +101,34 @@ const Navbar = () => {
         </div>
 
         {/* Auth Buttons */}
-        <div className="hidden md:flex gap-4">
-          <Link to="/login">
-            <button className="text-sm font-semibold px-4 py-2 rounded-md text-gray-700 hover:text-blue-600">
-              Login
-            </button>
-          </Link>
-          <Link to="/sign-up">
-            <button className="text-sm font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-              Sign Up
-            </button>
-          </Link>
-        </div>
+        {state && state.auth.login ? (
+          <div className="hidden md:flex gap-4">
+            <Link>
+              <Button
+                onClick={handleLogOut}
+                colorScheme="red"
+                className="text-sm font-semibold px-4 py-2 rounded-md text-gray-700 hover:text-blue-600"
+              >
+                Logout
+              </Button>
+            </Link>
+          </div>
+        ) : (
+          <div className="hidden md:flex gap-4">
+            <Link to="/login">
+              <button className="text-sm font-semibold px-4 py-2 rounded-md text-gray-700 hover:text-blue-600">
+                Login
+              </button>
+            </Link>
+            <Link to="/register-as">
+              <button className="text-sm font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
+                Sign Up
+              </button>
+            </Link>
+          </div>
+        )}
 
-        {/* Menu Icon */}
+       
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
@@ -158,7 +190,7 @@ const Navbar = () => {
             Login
           </Link>
           <Link
-            to="/sign-up"
+            to="/register-as"
             className="block text-white bg-blue-600 text-center py-2 rounded-md hover:bg-blue-700 transition"
           >
             Sign Up

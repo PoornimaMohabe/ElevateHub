@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function ContactUs() {
   return (
@@ -45,9 +46,11 @@ Drop us a message and our team will get back to you as soon as possible!</p>
           <label className="block font-semibold mb-1">Email Address</label>
           <input type="email" placeholder="Enter your email address…" className="w-full p-2 bg-[#c3ddf9] rounded-sm placeholder:text-gray-700" />
         </div>
+        <Link to="/sign-up">
         <button className="mt-4 bg-[#3351e7] text-white px-6 py-2 inline-flex items-center font-medium">
           Sign up →
         </button>
+        </Link>
         <div className="mt-8 text-sm">
           
           <p className="mt-2"><strong>Legal</strong><br />
