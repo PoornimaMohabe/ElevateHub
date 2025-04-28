@@ -112,5 +112,5 @@ Home Page	Mentor Profile Page	Dashboard
 <img src="../user-interface/src/assets/images/jobpage.png" width="600" />
 
 <!-- Mentor home Page -->
-<img src="../user-interface/src/assets/images/mentorhome.png" width="600" />
+<img src="../user-interface/src/assets/images/mentorpage.png" width="600" />
 
