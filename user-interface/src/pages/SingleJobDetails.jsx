@@ -17,9 +17,10 @@ import {
 import axios from "axios";
 import { getSingleJob } from "../utils/url";
 
-const SingleJobDetails = ({ id, isOpen, onClose }) => {
+const SingleJobDetails = ({ id, isOpen, onClose, fun }) => {
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
+  console.log(fun);
 
   const fetchJobDetails = async () => {
     const getSingleJobURL = `${getSingleJob}/${id}`;
@@ -40,7 +41,6 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
     }
   }, [id]);
 
-  
   if (loading) {
     return (
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="lg">
@@ -57,6 +57,10 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
       </Drawer>
     );
   }
+  const handleJob = () => {
+    fun();
+    onClose();
+  };
 
   if (!job) {
     return null;
@@ -103,7 +107,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
 
           <Divider />
 
-      
+          {/* About the Job */}
           <Box>
             <Text fontSize="xl" fontWeight="semibold" mb={3} color="blue.700">
               📝 About the Job
@@ -113,7 +117,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
             </Text>
           </Box>
 
-          
+          {/* Roles and Responsibilities */}
           <Box>
             <Text fontSize="xl" fontWeight="semibold" mb={3} color="blue.700">
               🎯 Role & Responsibilities
@@ -127,7 +131,7 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
             </Box>
           </Box>
 
-      
+          {/* Required Qualifications */}
           <Box>
             <Text fontSize="xl" fontWeight="semibold" mb={3} color="blue.700">
               🎓 Required Qualifications
@@ -143,9 +147,9 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
         </DrawerBody>
         <DrawerFooter className="flex justify-center">
           <Button
+            onClick={handleJob}
             colorScheme="green"
             size="lg"
-            
             className="w-full hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg"
           >
             Apply Now 🚀
@@ -153,7 +157,6 @@ const SingleJobDetails = ({ id, isOpen, onClose }) => {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-
   );
 };
 

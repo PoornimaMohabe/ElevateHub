@@ -27,7 +27,10 @@ export const getSingleJob = `${BASEURL_LOCAL}/jobdetails`
 // book mentor URL
 export const bookMentor = `${BASEURL_LOCAL}/bookmentor`
 
+
+
+
 //mentorshibooking url
 export const StudentBookMentorship = `${BASEURL_LOCAL}/student-bookings`
-
-
+export const getStudentIndividualBooking = `${BASEURL_LOCAL}/individual-student-bookings` // Get all bookings
+export const getMentorRequest = `${BASEURL_LOCAL}/mentor-reuqest` // Get all bookings by s

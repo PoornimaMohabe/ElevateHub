@@ -8,7 +8,7 @@ export const loginFunction = (fromData, showToast, navigate) => {
     return async (dispatch) => {
         dispatch({ type: LOGINLOADING })
         try {
-            const url = fromData.role === "mentor" ? mentorLogin : loginUrl; 
+            const url = fromData.role === "mentor" ? mentorLogin : loginUrl;
 
             const response = await axios.post(url, fromData)
             console.log("this is from loginfuntion", response.data);
@@ -70,11 +70,11 @@ export function logoutfunction(navigate,showToast ) {
                 dispatch({ type: LOGOUTSUCCESS  })
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
-               
+                // localStorage.removeItem('user');
+                navigate("/login")
                  
                 showToast(`Logout successfully` , "Logout successfully"  )
 
-                navigate("/login")
         
         } catch (error) {
             dispatch({ type: LOGOUTFAILURE, payload: error.message })

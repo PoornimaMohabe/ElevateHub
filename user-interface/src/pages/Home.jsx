@@ -8,15 +8,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import MentorDashboard from "../components/MentorDashboard";
-
-
-
-
+import MentorDashboard from "./MentorDashboard";
 
 function Home() {
   const state = useSelector((state) => state);
-  console.log("statefromhomePage", state.auth.role);
+  console.log("statefromhomePage", state?.auth?.role);
 
   return (
     <div>
@@ -31,7 +27,7 @@ function Home() {
 
           {/* <RequestConfirmation/> */}
           <section className="bg-[#F1F7FF] py-24 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between gap-12">
-          
+            {/* Text Content */}
             <div className="flex-1">
               <h2 className="text-4xl md:text-5xl font-extrabold text-[#00356C] mb-6 leading-tight">
                 Share your wisdom. <br /> Become a Mentor!
@@ -48,7 +44,7 @@ function Home() {
               </Link>
             </div>
 
-      
+            {/* Image */}
             <div className="flex-1 flex justify-center">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbYqmGOzMTzE8SS10gy7_DAs7n2WZ-XlxIEw&s"
@@ -57,7 +53,6 @@ function Home() {
               />
             </div>
           </section>
-          
         </div>
       )}
     </div>

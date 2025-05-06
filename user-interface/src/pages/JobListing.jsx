@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import SingleJobDetails from "./SignleJobDetails";
 import { getAllJob } from "../utils/url";
-import SingleJobDetails from "./SingleJobDetails";
+import Toastnotification from "../utils/Toastnotification";
 
 const JobListing = () => {
   const [jobs, setJobs] = useState([]);
@@ -13,7 +13,7 @@ const JobListing = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+  const { showToast } = Toastnotification();
   const fetchJobs = async () => {
     try {
       const response = await axios.get(getAllJob);
@@ -44,6 +44,10 @@ const JobListing = () => {
   const handleDrawerClose = () => {
     setDrawerOpen(false);
     setSelectedJobId(null);
+  };
+
+  const handleJob = () => {
+    showToast("job applied successfully", "success");
   };
 
   return (
@@ -126,7 +130,10 @@ const JobListing = () => {
                   >
                     More Details
                   </button>
-                  <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 text-sm rounded-lg transition">
+                  <button
+                    onClick={handleJob}
+                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 text-sm rounded-lg transition"
+                  >
                     Apply Now
                   </button>
                 </div>
@@ -136,12 +143,13 @@ const JobListing = () => {
         </div>
       </div>
 
-      {/* Drawer */}
+      {/* Drawer for Job Details */}
       {selectedJobId && (
         <SingleJobDetails
           id={selectedJobId}
           isOpen={drawerOpen}
           onClose={handleDrawerClose}
+          fun={handleJob}
         />
       )}
     </div>

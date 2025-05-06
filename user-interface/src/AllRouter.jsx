@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
+import Dashboard from "./pages/MentorDashboard";
 import Login from "./pages/login";
 import SignUp from "./pages/SignUp";
 import JobListing from "./pages/JobListing";
@@ -10,38 +11,43 @@ import AllMentors from "./pages/Mentor/AllMentors";
 import MentorCard from "./pages/Mentor/MentorCard";
 import MentorProfile from "./pages/Mentor/MentorProfile";
 import PostJob from "./pages/PostJob";
-import MentorRegistration from "./pages/MentorRegistration";
-
-import SingleJobDetails from "./pages/SingleJobDetails";
-
+import SignleJobDetails from "./pages/SignleJobDetails";
+import MentorRegistrationPage from "./pages/MentorRegistration";
 import SignUpAs from "./pages/SignUpAs";
-import BookingList from "./pages/RequestManagment";
-import MentorDashboard from "./components/MentorDashboard";
-
-
-
+import BookingList from "./pages/RequestManagement";
+import ScrollToTop from "./pages/ScrollTop";
+import StudentSendRequestToMentor from "./pages/StudentSendRequestToMentor";
 
 const AllRouter = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/all-jobs" element={<JobListing />} />
-    <Route path="/contact-us" element={<ContactUs />} />
-   
-      <Route path="/dashboard" element={<MentorDashboard />} />
-      <Route path="/jobs" element={<JobListing />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/mentor" element={<MentorCard />} />
-      <Route path="/student-bookings" element={<BookingList />} />
-      <Route path="/all-mentors" element={<AllMentors />} />
-      <Route path="/mentor/:id" element={<MentorProfile />} />
-      <Route path="/postJob" element={<PostJob />} />
-      <Route path="/getSingleJobDetails/:id" element={<SingleJobDetails />} />
-      <Route path="/mentor-registration" element={<MentorRegistration />} />
-      <Route path="/register-as" element={<SignUpAs />} />
-    </Routes>
+    <ScrollToTop>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/all-jobs" element={<JobListing />} />
+
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/jobs" element={<JobListing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/mentor" element={<MentorCard />} />
+        <Route path="/mentorship-request" element={<BookingList />} />
+        <Route path="/all-mentors" element={<AllMentors />} />
+        <Route path="/mentor/:id" element={<MentorProfile />} />
+        <Route path="/postJob" element={<PostJob />} />
+        <Route path="/getSingleJobDetails/:id" element={<SignleJobDetails />} />
+        <Route
+          path="/mentor-registration"
+          element={<MentorRegistrationPage />}
+        />
+        <Route path="/register-as" element={<SignUpAs />} />
+        <Route
+          path="/student-request-to-mentor"
+          element={<StudentSendRequestToMentor />}
+        />
+      </Routes>
+    </ScrollToTop>
   );
 };
 

@@ -8,23 +8,39 @@ import {
   FaLinkedin,
   FaGithub,
 } from "react-icons/fa";
-import { getSingleMentor } from "../../utils/url";
-import { useParams } from "react-router-dom";
-import { Button } from "@chakra-ui/react";
+import { bookMentor, getSingleMentor } from "../../utils/url";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  Input,
+  useDisclosure,
+} from "@chakra-ui/react";
+import Toastnotification from "../../utils/Toastnotification";
+import { useSelector } from "react-redux";
+import { authorizationToken } from "../../utils/Token";
 
 const MentorProfile = () => {
-  const [mentor, setMentors] = useState([]);
+  const [mentor, setMentors] = useState({});
+  const [topic, setTopic] = useState("");
   const { id } = useParams();
-  console.log(id);
+  const { showToast } = Toastnotification();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const state = useSelector((state) => state);
 
   const fetchMentor = async () => {
-    console.log("hello form fetchMentor");
-
     const getSingleMentorURL = `${getSingleMentor}/${id}`;
     try {
       const response = await axios.get(getSingleMentorURL);
       setMentors(response.data.mentor);
-      console.log(response.data);
     } catch (err) {
       console.log(err.message);
     }
@@ -34,7 +50,50 @@ const MentorProfile = () => {
     fetchMentor();
   }, [id]);
 
-  console.log(mentor);
+  const handleBooking = async () => {
+    const token = localStorage.getItem("token");
+    const userdetails = JSON.parse(localStorage.getItem("user"));
+
+    if (!token) {
+      showToast("Please login", "Please login to book a mentor.", "error");
+      localStorage.setItem("redirectPath", location.pathname);
+      navigate("/login");
+      return;
+    }
+
+    if (!topic.trim()) {
+      showToast("Topic is required", "Please enter the topic.", "warning");
+      return;
+    }
+
+    try {
+      const bookingData = {
+        mentorId: mentor._id,
+        mentorName: mentor.name,
+        userId: userdetails._id,
+        username: userdetails.name,
+        email: userdetails.email,
+        mobileNumber: userdetails.mobileNumber,
+        topicOnWhichGuidanceIsRequired: topic,
+      };
+
+      const response = await axios.post(bookMentor, bookingData, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      console.log(authorizationToken);
+
+      console.log("this is from mentor booking", response.data);
+
+      showToast("Mentor booked successfully!", "success");
+      onClose();
+      setTopic("");
+    } catch (error) {
+      console.error(error);
+      showToast("Failed to book mentor.", error.message, "error");
+    }
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen p-6">
@@ -43,14 +102,17 @@ const MentorProfile = () => {
         <div className="flex flex-col md:flex-row gap-6 p-8">
           <img
             src={mentor.image}
-            alt="Nguyen Shane"
+            alt="Mentor"
             className="rounded-xl w-36 h-40 object-cover"
           />
 
           <div className="flex-1 sm:mt-[auto]">
             <div className="flex justify-between items-center gap-2 ">
               <h2 className="text-xl font-bold">{mentor.name}</h2>
+
+              {/* Book Mentor Button */}
               <Button
+                onClick={onOpen}
                 colorScheme="green"
                 className="bg-lime-800 text-white px-4 py-2 text-sm md:p-4 md:text-base rounded-md"
               >
@@ -91,30 +153,28 @@ const MentorProfile = () => {
             <p className="text-xs text-gray-500">EMAIL ADDRESS</p>
             <p className="text-sm text-blue-500 mb-4">{mentor.email}</p>
             <p className="text-xs text-gray-500">SOCIAL MEDIA</p>
-            {
-              (FaFacebook,
-              FaTelegram,
-              FaTwitter,
-              FaInstagram,
-              FaLinkedin,
-              FaGithub)
-            }{" "}
+
             <div className="flex gap-3 my-2 text-gray-600 text-lg">
-              <a
-                href={mentor.linkedln_Profile}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href={mentor.github_Profile}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub />
-              </a>
+              {mentor.linkedln_Profile && (
+                <a
+                  href={mentor.linkedln_Profile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin />
+                </a>
+              )}
+              {mentor.github_Profile && (
+                <a
+                  href={mentor.github_Profile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub />
+                </a>
+              )}
             </div>
+
             <p className="text-xs text-gray-500 mt-4 mb-2 sm:mt-4">SKILLS</p>
             <div className="flex flex-wrap gap-2">
               {mentor.tech_Skill &&
@@ -130,9 +190,9 @@ const MentorProfile = () => {
           </div>
         </div>
 
-        {/* Work Experience */}
+        {/* Availability */}
         <div className="px-8 pb-8 mt-[-40px] sm:mt-3 ">
-          <h3 className="text-sm font-semibold mb-4">Availiblity</h3>
+          <h3 className="text-sm font-semibold mb-4">Availability</h3>
           <div className="flex flex-wrap gap-6 px-1">
             <div>
               <p className="text-s text-gray-400">05:00 pm</p>
@@ -146,6 +206,30 @@ const MentorProfile = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal for entering topic */}
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Enter Topic for Guidance</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Input
+              placeholder="Enter the topic..."
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
+            />
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="green" mr={3} onClick={handleBooking}>
+              Book Mentor
+            </Button>
+            <Button variant="ghost" onClick={onClose}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </div>
   );
 };
