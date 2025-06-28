@@ -11,16 +11,18 @@ import AllMentors from "./pages/Mentor/AllMentors";
 import MentorCard from "./pages/Mentor/MentorCard";
 import MentorProfile from "./pages/Mentor/MentorProfile";
 import PostJob from "./pages/PostJob";
-import SignleJobDetails from "./pages/SignleJobDetails";
+
 import MentorRegistrationPage from "./pages/MentorRegistration";
 import SignUpAs from "./pages/SignUpAs";
-import BookingList from "./pages/RequestManagement";
-import ScrollToTop from "./pages/ScrollTop";
+
+// import ScrollToTop from "./pages/ScrollTop";
 import StudentSendRequestToMentor from "./pages/StudentSendRequestToMentor";
+import BookingList from "./pages/RequestManagment";
+import SingleJobDetails from "./pages/SingleJobDetails";
 
 const AllRouter = () => {
   return (
-    <ScrollToTop>
+    // <ScrollToTop>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
@@ -36,7 +38,7 @@ const AllRouter = () => {
         <Route path="/all-mentors" element={<AllMentors />} />
         <Route path="/mentor/:id" element={<MentorProfile />} />
         <Route path="/postJob" element={<PostJob />} />
-        <Route path="/getSingleJobDetails/:id" element={<SignleJobDetails />} />
+        <Route path="/getSingleJobDetails/:id" element={<SingleJobDetails />} />
         <Route
           path="/mentor-registration"
           element={<MentorRegistrationPage />}
@@ -47,7 +49,7 @@ const AllRouter = () => {
           element={<StudentSendRequestToMentor />}
         />
       </Routes>
-    </ScrollToTop>
+    // </ScrollToTop>
   );
 };
 

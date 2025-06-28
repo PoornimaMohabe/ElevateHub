@@ -8,6 +8,7 @@ const BookingList = () => {
   const [bookings, setBookings] = useState([]);
   const { showToast } = Toastnotification();
 
+  
   const fetchAllBookings = async () => {
     try {
       const token = localStorage.getItem("token");

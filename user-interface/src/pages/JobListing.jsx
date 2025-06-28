@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import SingleJobDetails from "./SignleJobDetails";
+
 import { getAllJob } from "../utils/url";
 import Toastnotification from "../utils/Toastnotification";
+import SingleJobDetails from "./SingleJobDetails";
 
 const JobListing = () => {
   const [jobs, setJobs] = useState([]);

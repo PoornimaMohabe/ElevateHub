@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
   Drawer,
   DrawerOverlay,
@@ -16,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { getSingleJob } from "../utils/url";
+
 
 const SingleJobDetails = ({ id, isOpen, onClose, fun }) => {
   const [job, setJob] = useState(null);
