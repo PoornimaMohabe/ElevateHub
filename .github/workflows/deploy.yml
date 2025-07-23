@@ -29,10 +29,10 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "npm run  server"
+        run: "npm install"
 
       - name: Build step
-        run: "npm i"
+        run: "npm run server"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
@@ -41,4 +41,4 @@ jobs:
           entrypoint: "backend/index.js"
           root: "/backend"
           
-          exclude: .env
+          
